@@ -40,6 +40,11 @@ ON `pagamenti`.`prenotazione_id` = `prenotazioni`.`id`
 --
 -- Le stanze sono state tutte prenotate almeno una volta? (Visualizzare le stanze non ancora prenotate)
 --
+SELECT `stanze`.`id`, `prenotazioni`.`id` 
+FROM `stanze` 
+LEFT OUTER JOIN `prenotazioni` 
+ON `stanze`.`id` = `stanza_id` 
+WHERE `prenotazioni`.`id` IS NULL
 
 --
 -- Conta gli ospiti raggruppandoli per anno di nascita
